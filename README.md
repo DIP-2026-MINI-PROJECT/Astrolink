@@ -10,7 +10,7 @@ AstroLink is a MATLAB course project demonstrating digital image processing on a
 
 ## Summary -
 
-The integrated workflow reads Orion and M51 FITS science arrays, applies 8×8 block discrete cosine transform (DCT) coefficient quantization, reconstructs each image, and compares source and reconstruction using image-domain metrics. Grayscale and pseudocolour products are created separately for display. The DCT stage is a lossy compression demonstration; the project does not implement an RF transmission link or bitstream channel.
+The integrated workflow reads six astronomical FITS science arrays, applies 8×8 block discrete cosine transform (DCT) coefficient quantization at Δ=2, reconstructs each image, and compares source and reconstruction using image-domain metrics. Grayscale and pseudocolour products are created separately for display. The DCT stage is a lossy compression demonstration; the project does not implement an RF transmission link or bitstream channel.
 
 ## Course concepts used -
 
@@ -34,11 +34,11 @@ The integrated workflow reads Orion and M51 FITS science arrays, applies 8×8 bl
 
 The inputs are astronomical observations stored as FITS (Flexible Image Transport System) files. FITS preserves numeric pixel arrays and observation metadata, unlike an ordinary RGB photograph. Each input is processed as a two-dimensional intensity image; pixel values are kept in the science array's original scale for reconstruction metrics. Astronomical images have varying brightness and contrast, so faint structures may appear alongside much brighter sources.
 
-The current evaluation uses two independent optical science images: an Orion Hubble Space Telescope WFPC2 drizzled science product and an M51 ACS F435W drizzled image. The loader reads Orion's science extension and the M51 primary image. The included Orion archive manifest is at `data/orion/MANIFEST.HTML`. Infrared and X-ray observations are not part of the current configured dataset. Exact retrieval citation details for the included images are incomplete; consult the FITS headers and archive records before formal reuse.
+The integrated set contains six distinct targets: Orion, M51, Bug Nebula, Eagle Nebula, M35 cluster, and Venus. The inputs are FITS scientific arrays rather than ordinary RGB photographs. Orion is read from its `SCI` image extension; the other five selected images are read from their primary HDUs. FITS stored types are single precision except M35 (`int16`); MATLAB reads the selected arrays as double for processing without scaling source values to `[0,1]`. Three of the new files also contain ASCII-table extensions, which are not used as images. See [`Documentation/Project_Audit.md`](Documentation/Project_Audit.md) for the measured HDUs, dimensions, ranges, and available header metadata. The Orion archive manifest is at `data/orion/MANIFEST.HTML`; exact retrieval citation details remain incomplete for some inputs.
 
 ### Link and/or Explanation if generated
 
-The FITS inputs are stored in `data/`; no synthetic images are presented as independent observations. The integrated evaluation currently uses two targets and is planned to expand to at least six independent images. Any added wavelength bands or targets should be accompanied by their source and observation metadata. Orion chips, FITS extensions, and derived views are not independent targets.
+The FITS inputs are stored in `data/`; no synthetic images are presented as independent observations. The integrated evaluation currently processes six independent astronomical targets. Orion chips, FITS extensions, and derived views are not counted as additional targets. Source and observation metadata should be recorded for any future additions.
 
 ## Novelty -
 
@@ -55,8 +55,8 @@ AstroLink separates scientific pixel values from display transformations. It eva
 ### Clone Repository
 
 ```bash
-git clone <repo-url>
-cd <repository-folder>
+git clone https://github.com/DIP-2026-MINI-PROJECT/Astrolink.git
+cd Astrolink
 ```
 
 ### Install Dependencies
@@ -77,12 +77,12 @@ To run the unit demonstrations in sequence, run `run_demo.m`. Some unit scripts 
 
 Generated products are saved under `results/integrated/`:
 
-- Reconstructed science arrays (`reconstructed/*_science_arrays.mat`) and PNG previews
+- Reconstructed science arrays (`results/integrated/reconstructed/*_science_arrays.mat`) and PNG previews
 - Grayscale and pseudocolour display images
 - Original/reconstruction comparison panels
 - Per-image metric tables in CSV/MAT formats and metric graphs
 
-Recorded values and metric interpretation are in `Documentation/Results_Analysis.md`. BER is `NaN` (unavailable), not zero. The reported SNR is the image-energy to reconstruction-residual ratio, not channel SNR.
+Recorded six-image values and metric interpretation are in [`Documentation/Results_Analysis.md`](Documentation/Results_Analysis.md). The optional scale experiment in `unit2/evaluate_scale_adaptive_quantization.m` compares Δ=2 with a robust-span-relative step; it does not change the integrated default. BER is `NaN` (unavailable), not zero. The reported SNR is the image-energy to reconstruction-residual ratio, not channel SNR.
 
 ## References:
 
@@ -92,9 +92,9 @@ Recorded values and metric interpretation are in `Documentation/Results_Analysis
 
 ## Limitations and Future Work:
 
-- Only two independent science-image targets are currently configured. The planned next step is to expand the evaluation to at least six independent targets.
+- The six-image set is a small and heterogeneous sample; it is not a broad survey of astronomical data.
 - No bitstream, modem, RF channel, or decoder is implemented, so BER and channel SNR cannot be measured.
 - SSIM is the global form implemented by this project, not a local-window SSIM calculation.
-- The coefficient quantization step is fixed at 2 in source-intensity units and is not entropy-coded.
+- The integrated coefficient quantization step is fixed at 2 in source-intensity units and is not entropy-coded. The scale-relative comparison is experimental, not a validated optimum.
 - Record exact archive citations and add more independent, provenance-tracked images for broader evaluation.
 - Implement an explicit bitstream and channel model before reporting communication metrics.

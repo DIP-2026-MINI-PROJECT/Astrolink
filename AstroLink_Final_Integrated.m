@@ -2,14 +2,16 @@
 % Unit 2 in the existing project is lossy block-DCT coefficient quantization.
 % It is NOT bitstream/RF transmission: BER is therefore reported as NaN.
 % Requires MATLAB with FITS support (fitsinfo/fitsread) and Image Processing
-% Toolbox for dct2/idct2. Tested execution is not asserted by this source file.
+% Toolbox for dct2/idct2.
 clear; close all; clc;
 root = fileparts(mfilename('fullpath'));
 addpath(fullfile(root,'unit1'));
 out = fullfile(root,'results','integrated');
 folders = {'reconstructed','scientific_display','pseudocolour','comparisons','graphs','metrics'};
 for k=1:numel(folders), p=fullfile(out,folders{k}); if ~isfolder(p), mkdir(p); end, end
-names = ["orion","m51"];
+% Six independent source targets. Each target is loaded through the shared
+% Unit 1 FITS loader; FITS extensions and derived products are not samples.
+names = ["orion","m51","bug_nebula","eagle_nebula","m35","venus"];
 block = 8; qstep = 2; pct = [1 99.7]; soft = 0.02;
 Image = strings(numel(names),1); MSE=nan(numel(names),1); PSNR_dB=MSE; SSIM=MSE; SNR_dB=MSE; BER=MSE;
 for k=1:numel(names)
@@ -65,13 +67,17 @@ MaxValue=arrayfun(@(j) max(Values(:,j),[],'omitnan'),1:size(Values,2))';
 Summary=table(Metric,MeanValue,MinValue,MaxValue);
 disp(Summary); writetable(Summary,fullfile(out,'metrics','metrics_summary.csv'));
 save(fullfile(out,'metrics','metrics.mat'),'Summary','-append');
-try, writetable(T,fullfile(out,'metrics','metrics.xlsx')); catch warning('Excel export unavailable; CSV and MAT saved.'); end
+try
+    writetable(T,fullfile(out,'metrics','metrics.xlsx'));
+catch
+    warning('Excel export unavailable; CSV and MAT saved.');
+end
 metricNames={'PSNR_dB','SSIM','MSE','BER','SNR_dB'};
 for j=1:numel(metricNames)
     v=T.(metricNames{j}); f=figure('Visible','off'); bar(categorical(T.Image),v); ylabel(metricNames{j},'Interpreter','none'); xlabel('Input image'); title(['AstroLink metric: ',metricNames{j}]); grid on;
     exportgraphics(f,fullfile(out,'graphs',[metricNames{j},'.png'])); close(f);
 end
-fprintf('Distinct source images run: %d. Dataset has fewer than required 10. See Documentation/Results_Analysis.md.\n',numel(names));
+fprintf('Distinct astronomical targets run: %d of 6 configured. See Documentation/Results_Analysis.md.\n',numel(names));
 
 function [y,lim]=stretch_asinh(x,pct,soft,lim)
 v=x(isfinite(x)); if nargin<4 || isempty(lim), lim=[percentile(v,pct(1)),percentile(v,pct(2))]; end
