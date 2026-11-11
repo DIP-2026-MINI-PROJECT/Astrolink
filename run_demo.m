@@ -1,7 +1,8 @@
 %% AstroLink - Run the complete project demonstration
 % The sequence follows the syllabus: FITS inspection, Unit 1, selected
 % Unit 3 enhancement/filtering, Unit 4 morphology/pseudocolour, Unit 2 DCT,
-% quantization evaluation, and finally the results viewer.
+% quantization evaluation, the six-target integrated pipeline, and the results
+% viewer with all six integrated reconstructions together.
 
 run(fullfile(fileparts(mfilename("fullpath")), "unit1", "inspect_fits.m"));
 run(fullfile(fileparts(mfilename("fullpath")), "unit1", "sampling_quantization.m"));
@@ -14,4 +15,5 @@ run(fullfile(fileparts(mfilename("fullpath")), "unit4", "morphological_processin
 run(fullfile(fileparts(mfilename("fullpath")), "unit4", "pseudocolor_visualization.m"));
 run(fullfile(fileparts(mfilename("fullpath")), "unit2", "dct_compression.m"));
 run(fullfile(fileparts(mfilename("fullpath")), "unit2", "evaluate_dct_quantization.m"));
+run(fullfile(fileparts(mfilename("fullpath")), "AstroLink_Final_Integrated.m"));
 run(fullfile(fileparts(mfilename("fullpath")), "unit1", "Display_results.m"));
