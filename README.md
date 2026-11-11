@@ -71,7 +71,11 @@ In MATLAB, run:
 AstroLink_Final_Integrated
 ```
 
-Run `run_demo.m` to execute the six-target integrated pipeline and open the combined results viewer. To run the individual course demonstrations in sequence, run `run_unit_demos.m`; some unit scripts may open figures or request interactive input.
+Run `run_demo.m` to execute the six-target integrated pipeline, open the combined results viewer, and generate the final six-target report. The report places each original pseudocolour image beside its reconstructed pseudocolour image and lists MSE, PSNR, global SSIM, residual SNR, and BER availability for that target.
+
+To regenerate the report from existing integrated outputs without rerunning image processing, run `generate_final_report.m`.
+
+To run the individual course demonstrations in sequence, run `run_unit_demos.m`; some unit scripts may open figures or request interactive input.
 
 ## Outputs:
 
@@ -81,6 +85,8 @@ Generated products are saved under `results/integrated/`:
 - Grayscale and pseudocolour display images
 - Original/reconstruction comparison panels
 - Per-image metric tables in CSV/MAT formats and metric graphs
+
+The final comparison report is saved as [`PDF`](results/final_report/AstroLink_Six_Target_Comparison.pdf) and [`PNG`](results/final_report/AstroLink_Six_Target_Comparison.png) in `results/final_report/`. It uses paired asinh display limits per target, while all listed metrics use the original source-unit arrays. Each target is scaled independently for display, so compare original and reconstruction within each row rather than comparing absolute brightness across different targets. BER is shown as unavailable because there is no transmitted/received bitstream.
 
 Recorded six-image values and metric interpretation are in [`Documentation/Results_Analysis.md`](Documentation/Results_Analysis.md). The optional scale experiment in `unit2/evaluate_scale_adaptive_quantization.m` compares Δ=2 with a robust-span-relative step; it does not change the integrated default. BER is `NaN` (unavailable), not zero. The reported SNR is the image-energy to reconstruction-residual ratio, not channel SNR.
 

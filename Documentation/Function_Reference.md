@@ -23,6 +23,9 @@ This reference covers the six-image integrated run, the shared Unit 1 FITS loade
 | `median` | Calculates the median of the six robust intensity spans to anchor the adaptive comparison step so the median-scale image retains Δ=2. |
 | `mat2gray`, `imwrite` | Normalize reconstructed image for an 8-bit PNG preview and save it. This preview is not the source-unit reconstruction. |
 | `figure`, `tiledlayout`, `nexttile`, `imagesc`, `axis`, `colormap`, `gray`, `colorbar`, `title`, `exportgraphics`, `close` | Create/save noninteractive image panels. Grayscale and pseudocolour use the same scalar display array. |
+| `generate_final_report.m` | Loads each target's saved `original` and `reconstructed` science arrays plus the integrated metrics CSV. It builds one six-row report with paired original/reconstruction pseudocolour views, row-level metric text, and writes PNG and PDF files to `results/final_report/`. It does not calculate metrics from display images. |
+| `readtable`, `load`, `strcmpi`, `find`, `text`, `sgtitle` | Read the saved metrics and arrays, match rows by target ID, and lay out report labels and metric summaries. |
+| `report_display_pair`, `apply_report_stretch`, `report_percentile` | Local report helpers: derive p1–p99.7 limits from each original, apply the same limits and asinh softening 0.02 to the original and reconstruction display copies, and linearly interpolate the percentile. These are display-only transforms. |
 | `astro_falsecolor_map(256)` | Existing project function; returns 256-entry scalar-to-RGB display palette. Number 256 controls palette resolution, not image channels. |
 | `fprintf`, `disp`, `table` | Command-window reporting and metrics table creation. |
 | `writetable`, `save` | CSV, Excel (attempted, guarded), and MAT outputs. Raw original/reconstructed science arrays are saved per input; metrics and summary are also in MAT. |
@@ -35,7 +38,7 @@ This reference covers the six-image integrated run, the shared Unit 1 FITS loade
 
 ## Batch and scale-comparison behavior
 
-`AstroLink_Final_Integrated.m` iterates over the six configured target IDs and calls the shared loader for each. It retains the original 8×8 DCT, coefficient step Δ=2, source-unit metric comparison, and separate display processing. `unit2/evaluate_scale_adaptive_quantization.m` is an additional experiment; it reports fixed Δ=2 beside `Δᵢ = 2 × robustSpanᵢ / median(robustSpan)` and writes `results/integrated/metrics/quantization_scale_experiment.csv`. It does not change the integrated default.
+`AstroLink_Final_Integrated.m` iterates over the six configured target IDs and calls the shared loader for each. It retains the original 8×8 DCT, coefficient step Δ=2, source-unit metric comparison, and separate display processing. `run_demo.m` then opens the combined results viewer and runs `generate_final_report.m`. The report writes a PNG and PDF to `results/final_report/`. It reports global SSIM, not local-window SSIM, and shows BER as unavailable. `unit2/evaluate_scale_adaptive_quantization.m` is an additional experiment; it reports fixed Δ=2 beside `Δᵢ = 2 × robustSpanᵢ / median(robustSpan)` and writes `results/integrated/metrics/quantization_scale_experiment.csv`. It does not change the integrated default.
 
 ## Dependencies and version notes
 

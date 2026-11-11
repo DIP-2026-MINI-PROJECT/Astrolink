@@ -14,7 +14,8 @@
 | Original science values remain separate from display | PASS | Metrics precede asinh stretch; display and pseudocolour products are generated separately. No pseudocolour data enter metric calculations. |
 | Source data finite and shape checks | PASS | Six selected arrays are 2-D and finite; selected sizes and ranges are listed in `Project_Audit.md`. |
 | Six-image metrics and outputs exported | PASS | CSV/MAT metrics, summary, graphs, comparison images, reconstructed arrays, and displays were generated under `results/integrated/`. The scale experiment CSV was also generated. |
-| MATLAB Code Analyzer | PASS | No issues reported for the shared loader, six-image integrated script, or scale experiment script. |
+| Six-target final comparison report generated | PASS | `generate_final_report.m` loaded all six saved source/reconstruction array pairs and metric rows, then exported `results/final_report/AstroLink_Six_Target_Comparison.png` and `.pdf`. Visual inspection confirmed six paired pseudocolour targets and MSE, PSNR, global SSIM, residual SNR, and unavailable BER for every row. |
+| MATLAB Code Analyzer | PASS | No issues reported for the shared loader, six-image integrated script, scale experiment, `generate_final_report.m`, or `run_demo.m`. |
 | Individual educational unit scripts after loader extension | NOT TESTED | The six-target integrated entry point is verified; the separate `run_unit_demos.m` sequence and all interactive unit scripts were not rerun after extending the loader. |
 | Local-window SSIM | NOT IMPLEMENTED | Reported SSIM is the global-statistics formula, explicitly distinguished from MATLAB local-window `ssim`. |
 | RF, transmitted bits, BER, channel SNR | NOT IMPLEMENTED | No bitstream or channel exists. BER remains NaN/unavailable, not zero. |

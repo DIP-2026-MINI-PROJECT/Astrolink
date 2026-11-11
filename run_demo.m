@@ -4,3 +4,4 @@
 root = fileparts(mfilename("fullpath"));
 run(fullfile(root,"AstroLink_Final_Integrated.m"));
 run(fullfile(root,"unit1","Display_results.m"));
+run(fullfile(root,"generate_final_report.m"));
