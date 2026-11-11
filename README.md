@@ -71,7 +71,7 @@ In MATLAB, run:
 AstroLink_Final_Integrated
 ```
 
-To run the unit demonstrations in sequence, run `run_demo.m`. Some unit scripts may open figures or request interactive input.
+Run `run_demo.m` to execute the six-target integrated pipeline and open the combined results viewer. To run the individual course demonstrations in sequence, run `run_unit_demos.m`; some unit scripts may open figures or request interactive input.
 
 ## Outputs:
 

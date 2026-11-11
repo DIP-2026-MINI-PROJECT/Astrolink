@@ -2,7 +2,7 @@
 
 ## Existing structure and data flow
 
-The four-unit architecture remains intact: Unit 1 handles FITS acquisition, image fundamentals, pixel relationships, and intensity operations; Unit 2 demonstrates block-DCT quantization; Unit 3 contains enhancement and filtering exercises; Unit 4 contains morphology and pseudocolour visualization. `run_demo.m` remains the sequential unit runner. `AstroLink_Final_Integrated.m` is the separate six-target evaluation entry point. The shared `unit1/load_sci_image.m` loader supports all six targets, preserving the Orion SCI-extension path and the existing M51 primary-image path.
+The four-unit architecture remains intact: Unit 1 handles FITS acquisition, image fundamentals, pixel relationships, and intensity operations; Unit 2 demonstrates block-DCT quantization; Unit 3 contains enhancement and filtering exercises; Unit 4 contains morphology and pseudocolour visualization. `run_demo.m` now runs the six-target integrated pipeline and combined results viewer. `run_unit_demos.m` preserves the prior sequential unit-runner workflow. The shared `unit1/load_sci_image.m` loader supports all six targets, preserving the Orion SCI-extension path and the existing M51 primary-image path.
 
 ## Findings
 

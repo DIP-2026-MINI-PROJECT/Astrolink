@@ -117,6 +117,9 @@ for groupIndex = 1:size(displayGroups, 1)
     fprintf("Displayed %d figure(s): %s\n", numel(imageFiles), groupName);
 end
 
+% Bring the six-target overview to the front after the legacy figure groups.
+figure(overviewFigure);
+
 function displayImage = asinh_display_copy(original,reconstructed,percentiles,softening)
 % Match the integrated pipeline's display-only asinh transformation.
 finiteSource = original(isfinite(original));
