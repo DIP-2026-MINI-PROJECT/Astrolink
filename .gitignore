@@ -1,0 +1,17 @@
+# Local MATLAB preferences and credentials
+.matlab_prefs/
+
+# Machine-specific editor and runtime files
+.vscode/
+NVIDIA Corporation/
+*.asv
+*.m~
+*.autosave
+
+# MATLAB generated artifacts
+*.mex*
+*.slxc
+slprj/
+sccprj/
+codegen/
+.buildtool/

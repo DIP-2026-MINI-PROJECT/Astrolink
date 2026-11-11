@@ -1,0 +1,24 @@
+AstroLink astronomical visualization notes
+==========================================
+
+The images in this folder are display products. FITS arrays remain
+unchanged, and the asinh stretch and false-colour palette are applied only
+to separate copies for rendering. The asinh limits use the 1st and 99.7th
+percentiles of finite input pixels; values outside those limits are clipped
+for display, while NaNs map to the display floor and infinities are clipped.
+The scientific intensity figures use grayscale and a labelled colour scale
+whose tick labels are in the source image's intensity units.
+
+The false-colour images encode one intensity array as colours. They are not
+true astronomical RGB and must not be interpreted as physical colour.
+
+The project contains Orion WFPC2 products, but the inspected FITS headers
+report the same filter (F658N; FILTER1=32, FILTER2=0) for the Orion observations.
+The separate files are not a compatible, aligned multi-filter colour set.
+M51 is available as one ACS F435W drizzled image. Therefore, no separate
+RGB channels are constructed or presented as real colour data.
+
+Original and DCT-reconstructed views use the same asinh parameters and
+intensity limits derived from the original science image. DCT, sampling,
+quantization, and pixel-relationship operations use scientific values;
+display stretching does not feed back into those computations.

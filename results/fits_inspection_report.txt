@@ -1,0 +1,144 @@
+ASTROLINK FITS INSPECTION REPORT
+================================
+Generated: 26-Oct-2026 17:46:30
+MATLAB: 26.2.0.3386108 (R2026b)
+Project root: C:\Electronics\DIP\AstroLink
+Data folder: C:\Electronics\DIP\AstroLink\data\orion\MAST_2026-10-09T0632\HST
+
+Files found:
+  1. u2id010gt_c0f.fits (10.31 MB)
+  2. u2id010gt_c0m.fits (10.31 MB)
+  3. u2id010gt_c1f.fits (5.18 MB)
+  4. u2id010gt_c1m.fits (5.18 MB)
+  5. u2id010gt_c3m.fits (0.21 MB)
+  6. u2id010gt_cgr.fits (0.03 MB)
+  7. u2id010gt_drz.fits (27.28 MB)
+  8. u2id010gt_flt.fits (25.92 MB)
+  9. u2id010gt_flt_hlet.fits (0.03 MB)
+
+Per-file HDU structure:
+-----------------------
+  File size: 10.31 MB (10307520 bytes)
+  HDU contents: Primary, ASCII Table
+  Primary HDU: single [800 x 800 x 4], DataSize = 10240000
+  ASCII Table extension: present
+  File size: 10.31 MB (10307520 bytes)
+  HDU contents: Primary, Image, Image, Image, Image
+  Primary HDU: int16 [], DataSize = 0
+  Image HDU 1: EXTNAME=SCI EXTVER=1 single [800 x 800] BUNIT=COUNTS
+  Image HDU 2: EXTNAME=SCI EXTVER=2 single [800 x 800] BUNIT=COUNTS
+  Image HDU 3: EXTNAME=SCI EXTVER=3 single [800 x 800] BUNIT=COUNTS
+  Image HDU 4: EXTNAME=SCI EXTVER=4 single [800 x 800] BUNIT=COUNTS
+  File size: 5.18 MB (5184000 bytes)
+  HDU contents: Primary, ASCII Table
+  Primary HDU: int16 [800 x 800 x 4], DataSize = 5120000
+  ASCII Table extension: present
+  File size: 5.18 MB (5178240 bytes)
+  HDU contents: Primary, Image, Image, Image, Image
+  Primary HDU: int16 [], DataSize = 0
+  Image HDU 1: EXTNAME=SCI EXTVER=1 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 2: EXTNAME=SCI EXTVER=2 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 3: EXTNAME=SCI EXTVER=3 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 4: EXTNAME=SCI EXTVER=4 int16 [800 x 800] BUNIT=COUNTS
+  File size: 0.21 MB (207360 bytes)
+  HDU contents: Primary, Binary Table
+  Primary HDU: int16 [], DataSize = 0
+  Binary Table extension: present
+  File size: 0.03 MB (31680 bytes)
+  HDU contents: Primary, ASCII Table
+  Primary HDU: uint8 [], DataSize = 0
+  ASCII Table extension: present
+  File size: 27.28 MB (27279360 bytes)
+  HDU contents: Primary, Image, Image, Image
+  Primary HDU: uint8 [], DataSize = 0
+  Image HDU 1: EXTNAME=SCI EXTVER=1 single [1496 x 1516] BUNIT=COUNTS/S
+  Image HDU 2: EXTNAME=WHT EXTVER=1 single [1496 x 1516] BUNIT=COUNTS
+  Image HDU 3: EXTNAME=CTX EXTVER=1 int32 [1496 x 1516] BUNIT=COUNTS
+  File size: 25.92 MB (25920000 bytes)
+  HDU contents: Primary, Image, Image, Image, Image, Image, Image, Image, Image, Image, Image, Image, Image, Image, Unknown, Binary Table, Unknown, Unknown
+  Primary HDU: uint8 [], DataSize = 0
+  Image HDU 1: EXTNAME=SCI EXTVER=1 single [800 x 800] BUNIT=COUNTS
+  Image HDU 2: EXTNAME=SCI EXTVER=2 single [800 x 800] BUNIT=COUNTS
+  Image HDU 3: EXTNAME=SCI EXTVER=3 single [800 x 800] BUNIT=COUNTS
+  Image HDU 4: EXTNAME=SCI EXTVER=4 single [800 x 800] BUNIT=COUNTS
+  Image HDU 5: EXTNAME=DQ EXTVER=1 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 6: EXTNAME=ERR EXTVER=1 single [800 x 800] BUNIT=COUNTS
+  Image HDU 7: EXTNAME=DQ EXTVER=2 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 8: EXTNAME=ERR EXTVER=2 single [800 x 800] BUNIT=COUNTS
+  Image HDU 9: EXTNAME=DQ EXTVER=3 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 10: EXTNAME=ERR EXTVER=3 single [800 x 800] BUNIT=COUNTS
+  Image HDU 11: EXTNAME=DQ EXTVER=4 int16 [800 x 800] BUNIT=COUNTS
+  Image HDU 12: EXTNAME=ERR EXTVER=4 single [800 x 800] BUNIT=COUNTS
+  Image HDU 13: EXTNAME=D2IMARR EXTVER=1 single [1 x 800] BUNIT=
+  Binary Table extension: present
+  File size: 0.03 MB (34560 bytes)
+  HDU contents: Primary, Image, Image, Image, Image, Image
+  Primary HDU: uint8 [], DataSize = 0
+  Image HDU 1: EXTNAME=SIPWCS EXTVER=1 uint8 [] BUNIT=
+  Image HDU 2: EXTNAME=D2IMARR EXTVER=1 single [1 x 800] BUNIT=
+  Image HDU 3: EXTNAME=SIPWCS EXTVER=2 uint8 [] BUNIT=
+  Image HDU 4: EXTNAME=SIPWCS EXTVER=3 uint8 [] BUNIT=
+  Image HDU 5: EXTNAME=SIPWCS EXTVER=4 uint8 [] BUNIT=
+
+Science product: u2id010gt_drz.fits
+Science image identified as extension SCI (EXTNAME=SCI, EXTVER=1).
+
+Selected keywords:
+  TELESCOP   = HST
+  INSTRUME   = WFPC2
+  DETECTOR   = 
+  FILTER1    = 32
+  FILTER2    = 0
+  TARGNAME   = NGC1976-HST1
+  RA_TARG    = 83.8237
+  DEC_TARG   = -5.3946
+  DATE-OBS   = 1995-03-21
+  TIME-OBS   = 07:16:16
+  EXPTIME    = 180
+  EXPSTART   = 49797.303
+  PROPOSID   = 5469
+  EXTNAME    = SCI
+  EXTVER     = 1
+  BUNIT      = COUNTS/S
+  BITPIX     = -32
+  NAXIS1     = 1516
+  NAXIS2     = 1496
+  CRPIX1     = 758.1324
+  CRPIX2     = 748.115
+  CD1_1      = 1.9821e-05
+  CD2_2      = -1.9821e-05
+
+Pixel statistics (original, unnormalized values):
+  SCI (science image, COUNTS/S)
+    class: double, dimensions: [1496 x 1516], pixels: 2267936
+    min: 0, max: 50.2161
+    mean: 1.00463, median: 0.946858, std: 0.825685
+    NaNs: 0, Infs: 0, zeros: 462506, negatives: 0
+    percentiles 1/5/50/95/99: 0 / 0 / 0.946858 / 2.42811 / 3.52558
+  WHT (weight map, COUNTS)
+    class: double, dimensions: [1496 x 1516], pixels: 2267936
+    min: 0, max: 919.752
+    mean: 179.686, median: 182.985, std: 176.612
+    NaNs: 0, Infs: 0, zeros: 462506, negatives: 0
+    percentiles 1/5/50/95/99: 0 / 0 / 182.985 / 633.497 / 886.542
+  CTX (context map, COUNTS)
+    class: double, dimensions: [1496 x 1516], pixels: 2267936
+    min: 0, max: 9
+    mean: 3.50985, median: 2, std: 2.8993
+    NaNs: 0, Infs: 0, zeros: 462506, negatives: 0
+    percentiles 1/5/50/95/99: 0 / 0 / 2 / 8 / 8
+
+Display figures saved to results/:
+  u2id010gt_drz_SCI_display.png
+  u2id010gt_drz_extensions_display.png
+  u2id010gt_drz_SCI_histogram.png
+
+Notes:
+  - Original FITS files were opened read-only and not modified.
+  - All statistics above are computed from the original pixel values.
+  - Percentile-stretch normalization was applied only to separate
+    in-memory copies used to render the display figures.
+  - Stage 1 is inspection only: no sampling, quantization, transforms,
+    compression, or RF communication is implemented in this script.
+
+Errors encountered: none.
